@@ -1,0 +1,5 @@
+{
+  "error": "no such element",
+  "message": "no such element: Unable to locate element: {\"method\":\"link text\",\"selector\":\"login\"}\n  (Session info: chrome=110.0.5481.97)",
+  "stacktrace": "Backtrace:\n\t(No symbol) [0x00DC37D3]\n\t(No symbol) [0x00D58B81]\n\t(No symbol) [0x00C5B36D]\n\t(No symbol) [0x00C8D382]\n\t(No symbol) [0x00C8D4BB]\n\t(No symbol) [0x00CC3302]\n\t(No symbol) [0x00CAB464]\n\t(No symbol) [0x00CC1215]\n\t(No symbol) [0x00CAB216]\n\t(No symbol) [0x00C80D97]\n\t(No symbol) [0x00C8253D]\n\tGetHandleVerifier [0x0103ABF2+2510930]\n\tGetHandleVerifier [0x01068EC1+2700065]\n\tGetHandleVerifier [0x0106C86C+2714828]\n\tGetHandleVerifier [0x00E73480+645344]\n\t(No symbol) [0x00D60FD2]\n\t(No symbol) [0x00D66C68]\n\t(No symbol) [0x00D66D4B]\n\t(No symbol) [0x00D70D6B]\n\tBaseThreadInitThunk [0x764100F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x76F97BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x76F97B8E+238]\n"
+}

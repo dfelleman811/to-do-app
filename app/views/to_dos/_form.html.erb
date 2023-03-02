@@ -1,0 +1,14 @@
+<%= form_with model: todo do |form|%>
+
+    <div>
+        <%= form.label :description %>
+        <%= form.text_field :description %>
+    </div>
+
+     <div>
+        <%= form.label :is_complete %>
+        <%# <%= form.check_box :is_complete %> 
+    </div>
+    <div><%= form.submit %></div>
+
+<% end %>
