@@ -1,15 +1,19 @@
+
+<div class="container mb-3">
 <h1>Log in</h1>
 
-<%= form_with model: @session do |form| %>
-    <div>
-        <%= form.label :username %>
-        <%= form.text_field :username %>
+<%= form_with url: sessions_path do |form| %>
+    <div class="form-group">
+        <%= form.label :username, class: "form-label" %>
+        <%= form.text_field :username, class: "form-control" %>
     </div>
-     <div>
-        <%= form.label :password %>
-        <%= form.password_field :password %>
+     <div class="form-group">
+        <%= form.label :password, class: "form-label" %>
+        <%= form.password_field :password, class: "form-control" %>
     </div>
     <div>
-        <%= form.submit "login" %>
+        <%= form.submit "login", class: "form-control" %>
     </div>
 <% end %>
+
+</div>

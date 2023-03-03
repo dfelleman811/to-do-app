@@ -5,8 +5,8 @@ class ToDosController < ApplicationController
         if current_user
             @todos = User.find_by(username: @current_user.username).to_dos
         else
-            flash.alert = "You must lof in to see your to do list!"
-            redirect_to "/login"
+            flash[:failure] = "You must lof in to see your to do list!"
+            redirect_to new_session_path
         end
     end
 
@@ -30,10 +30,10 @@ class ToDosController < ApplicationController
         @todo.is_complete = false
         @todo.user = @user
         if @todo.save
-            flash.notice = "successfully added new todo"
+            flash[:success] = "successfully added new todo"
             redirect_to root_path
         else
-            flash.alert = "something went wrong"
+            flash[:failure] = "something went wrong"
             render :new, status: :unprocessable_entity
         end
     end
@@ -42,10 +42,10 @@ class ToDosController < ApplicationController
         @todo = ToDo.find(params[:id])
 
         if @todo.update(to_do_params)
-            flash.notice = "successfully updated to do"
+            flash[:success] = "successfully updated to do"
             redirect_to root_path
         else
-            flash.alert = "something went wrong. not updated"
+            flash[:failure] = "something went wrong. not updated"
             render :edit, status: :unprocessable_entity
         end
 
@@ -54,10 +54,10 @@ class ToDosController < ApplicationController
     def destroy
         @todo = ToDo.find(params[:id])
         if @todo.delete
-            flash.notice = "Todo successfully deleted"
+            flash[:success] = "Todo successfully deleted"
             redirect_to root_path
         else
-            flash.alert = "todo not deleted"
+            flash[:failure] = "todo not deleted"
             redirect_to root_path
         end
     end

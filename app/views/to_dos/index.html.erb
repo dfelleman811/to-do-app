@@ -1,6 +1,6 @@
 <h1>To Dos</h1>
-
-<table>
+<div class="container">
+<table class="table">
     <thead>
         <tr>
             <th>ToDo</th>
@@ -12,7 +12,7 @@
         <% @todos.each do |t| %>
             <tr>
                 <td><%= t.description %> </td>
-                <td><%= check_box_tag 'complete', { checked: t.is_complete } %></td>
+                <td><%= check_box_tag 'is_complete', 'is_complete', t.is_complete, {onclick: "console.log('mark as complete')"} %></td>
                 <td><%= link_to "Details", t %></td>
                 <td><%= link_to "Edit", edit_to_do_path(t) %></td>
                 <td><%= link_to "Delete", to_do_path(t), data: { turbo_method: :delete, confirm: "Are you sure?"} %></td>
@@ -22,3 +22,4 @@
 </table>
 <br>
 <%= link_to "Add new todo", new_to_do_path %>
+</div>

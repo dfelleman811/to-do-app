@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :to_dos
   resources :users, only: [:new, :create]
 
-  get '/login' => "sessions#new"
-  post '/login' => "sessions#create"
-  get '/logout' => "sessions#destroy"
+  resources :sessions, only: [:new, :create, :destroy]
+
+  # get '/login' => "sessions#new"
+  # post '/login' => "sessions#create"
+  # get '/logout' => "sessions#destroy"
 end

@@ -7,10 +7,10 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
-            flash.notice = "User registered successfully"
-            redirect_to '/login'
+            flash[:success] = "User registered successfully"
+            redirect_to new_session_path
         else
-            flash.alert = "Registration failed. Please try again."
+            flash.now[:failure] = "Registration failed. Please try again."
             render :new, status: :unprocessable_entity
         end
     end
