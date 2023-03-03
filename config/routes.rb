@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "to_dos#index"
+  root "sessions#new"
 
   resources :to_dos
   resources :users, only: [:new, :create]

@@ -5,7 +5,7 @@
 * For Rails app
     * Ruby version = `ruby-3.2.0`
     * Rails version = `Rails 7.0.4.2`
-* Also
+* For authentication
     * bcrypt
 * For test framework
     * requires: webdriverio, typescript, chromedriver, allure-reporter, allure-commandline
