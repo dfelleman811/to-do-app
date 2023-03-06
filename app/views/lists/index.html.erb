@@ -11,9 +11,9 @@
                     <%= l.category %>
                 </h5>
                 <p class="card-text">
-                    This list has <%= l.to_dos.count %> to dos in it
+                    This list has <%= l.to_dos.size %> to dos in it
                 </p>
-                <%= button_to "Take a look!", l, method: :get, class: "btn btn-warning" %>
+                <%= button_to "See to dos", l, method: :get, class: "btn btn-warning" %>
                
             </div>
         </div>

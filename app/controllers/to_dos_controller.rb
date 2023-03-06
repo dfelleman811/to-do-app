@@ -28,11 +28,18 @@ class ToDosController < ApplicationController
             @user = @current_user
         end
         @todo = ToDo.new(to_do_params)
+        
+        if params[:list_id]
+            @todo.list_id = params[:list_id]
+        end
         @todo.is_complete = false
         @todo.user = @user
         if @todo.save
             flash[:success] = "successfully added new todo"
-            redirect_to to_dos_path
+            unless request.fullpath.include? "lists"
+                redirect_to to_dos_path and return 
+            end
+            redirect_to list_path @todo.list
         else
             flash[:failure] = "something went wrong"
             render :new, status: :unprocessable_entity
@@ -44,7 +51,10 @@ class ToDosController < ApplicationController
 
         if @todo.update(to_do_params)
             flash[:success] = "successfully updated to do"
-            redirect_to to_dos_path
+            unless request.fullpath.include? "lists"
+                redirect_to to_dos_path and return 
+            end
+            redirect_to list_path @todo.list
         else
             flash[:failure] = "something went wrong. not updated"
             render :edit, status: :unprocessable_entity
@@ -56,17 +66,23 @@ class ToDosController < ApplicationController
         @todo = ToDo.find(params[:id])
         if @todo.delete
             flash[:success] = "Todo successfully deleted"
-            redirect_to to_dos_path
+            unless request.fullpath.include? "lists"
+                redirect_to to_dos_path and return 
+            end
+            redirect_to list_path(@todo.list)
         else
             flash[:failure] = "todo not deleted"
-            redirect_to to_dos_path
+            unless request.fullpath.include? "lists"
+                redirect_to to_dos_path and return 
+            end
+            redirect_to list_path(@todo.list)
         end
     end
     
 
     private 
     def to_do_params
-        params.require(:to_do).permit(:description, :is_complete, :user_id)
+        params.require(:to_do).permit(:description, :is_complete, :user_id, :list_id)
     end
     
 end
