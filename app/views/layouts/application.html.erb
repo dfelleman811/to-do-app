@@ -26,8 +26,8 @@
           <%= link_to "My Lists", lists_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to("Logout", session_path(@current_user), class: "nav-link", data: { turbo_method: :delete }) if @current_user %>
-        </li>
+            <%= link_to "Logout", session_path(current_user), class: "nav-link", data: { turbo_method: :delete } if current_user %>
+        </li>        
       </ul>
     </div>
   </div>
