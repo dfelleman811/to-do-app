@@ -2,6 +2,8 @@
 
 <%= render 'shared/errors', obj: @todo %>
 
+<%= render 'form', obj: @todo %>
+<!--
 <%= form_with model: @todo do |form| %>
     <div>
         <%= form.label :description %>
@@ -10,3 +12,4 @@
     <%= form.submit "Add"%>
 <% end %>
 
+-->

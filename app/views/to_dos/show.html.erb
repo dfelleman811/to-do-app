@@ -1,1 +1,9 @@
-<%= render 'form', todo: @todo %>
+<div class="container mb-3">
+    <div class="show-todo">
+        <h4>Description</h4>
+        <p><%= @todo.description %></p>
+        <label for="is_complete">Is complete?</label>
+        <%= check_box_tag('is_complete', 'is_complete', @todo.is_complete) %>
+    </div>
+    <%= button_to "Back", to_dos_path, method: :get %>
+</div>

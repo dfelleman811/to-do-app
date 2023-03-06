@@ -1,6 +1,6 @@
 
 <% if obj.errors.any? %>
-    <div class="errors">
+    <div class="errors container">
         <h3><%= pluralize(obj.errors.count, "errors") %> prevented the action you were trying to complete.</h3>
         <ul>
             <% obj.errors.full_messages.each do |msg| %>
