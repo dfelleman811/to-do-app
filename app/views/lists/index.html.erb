@@ -1,0 +1,34 @@
+<h1 class="heading">Your Lists</h1>
+
+<div class="container mb-3">
+
+
+    <% @lists.each do |l| %>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%= l.category %>
+                </h5>
+                <p class="card-text">
+                    This list has <%= l.to_dos.count %> to dos in it
+                </p>
+                <%= button_to "Take a look!", l, method: :get, class: "btn btn-warning" %>
+               
+            </div>
+        </div>
+
+    <% end %>
+
+ 
+</div>
+
+<div class="container mb-3">
+
+    <form action="/lists" method="post">
+        <label for="category-name">
+            <input id="category-name" type="text" name="list[category]">
+        </label>
+        <input type="submit" value="create new list">
+    </form>
+</div>

@@ -1,0 +1,30 @@
+<h1 class="heading"><%= @list.category %></h1>
+
+<div class="container">
+<table class="table">
+    <thead>
+        <tr>
+            <th>ToDo</th>
+            <th>Done?</th>
+            <th colspan=3>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @list.to_dos.each do |t| %>
+            <tr>
+                <td><%= t.description %> </td>
+                <td><%= check_box_tag 'is_complete', 'is_complete', t.is_complete, {onclick: "console.log('mark as complete')"} %></td>
+                <td><%= link_to "Details", t %></td>
+                <td><%= link_to "Edit", edit_to_do_path(t) %></td>
+                <td><%= link_to "Delete", to_do_path(t), data: { turbo_method: :delete, confirm: "Are you sure?"} %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<br>
+
+<form action="/to_dos" method="post">
+    <label for="description">Description</label>
+    <input id="desription" type="text" name="to_do[description]">
+    <input type="submit" value="Add">
+</form>
