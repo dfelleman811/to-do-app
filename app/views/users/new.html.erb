@@ -1,15 +1,21 @@
+
+<div class="container mb-3 mt-3 col-6">
 <h1>Register new user</h1>
 
 <%= render 'shared/errors', obj: @user %>
 
 <%= form_with model: @user do |form| %>
     <div>
-        <%= form.label :username %>
-        <%= form.text_field :username %>
+        <%= form.label :username, class: "form-label" %>
+        <%= form.text_field :username, class: "form-control" %>
     </div>
     <div>
-        <%= form.label :password %>
-        <%= form.password_field :password %>
+        <%= form.label :password, class: "form-label" %>
+        <%= form.password_field :password, class: "form-control"%>
     </div>
-    <%= form.submit "Register" %>
+    <div>
+    <%= form.submit "Register", class: "btn btn-success form-control" %>
+    </div>
 <% end %>
+
+</div>

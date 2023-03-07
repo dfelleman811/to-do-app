@@ -26,6 +26,7 @@
 <div class="container mb-3">
 
     <form action="/lists" method="post">
+    <input type="hidden" value=<%= form_authenticity_token %> name="authenticity_token">
         <label for="category-name">
             <input id="category-name" type="text" name="list[category]">
         </label>
