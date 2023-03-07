@@ -25,6 +25,7 @@
 <br>
 
 <form action="/to_dos" method="post">
+     <input type="hidden" value=<%= form_authenticity_token %> name="authenticity_token">
     <label for="description">Description</label>
     <input id="desription" type="text" name="to_do[description]">
     <input type="submit" value="Add">
